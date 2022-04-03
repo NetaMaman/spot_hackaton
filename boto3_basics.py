@@ -1,7 +1,7 @@
 import boto3
 from credentials import AWS_ACCESS_KEY, AWS_SECRET_KEY
 
-INSTANCE_ID = "i-09b88d749af356384"
+INSTANCE_ID = "i-0489cf17d435ce80a"
 
 session = boto3.Session(
     aws_access_key_id=AWS_ACCESS_KEY,

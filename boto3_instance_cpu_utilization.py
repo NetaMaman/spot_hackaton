@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from credentials import AWS_ACCESS_KEY, AWS_SECRET_KEY
 
 # define the instance ID we'd like to inspect
-INSTANCE_ID = "i-09b88d749af356384"
+INSTANCE_ID = "i-0489cf17d435ce80a"
 
 # initialize the boto3 session
 session = boto3.Session(
@@ -31,10 +31,12 @@ response = client.get_metric_statistics(
 # inspect the datapoints
 for datapoint in response["Datapoints"]:
     if "Average" in datapoint:
-        print(f"Time: {datapoint['Timestamp']}, Average: {datapoint['Average']}")
+        print(
+            f"Time: {datapoint['Timestamp']}, Average: {datapoint['Average']}")
 
 # sort the datapoints by timestamp
-datapoints_sorted = sorted(response["Datapoints"], key=lambda x: x["Timestamp"])
+datapoints_sorted = sorted(
+    response["Datapoints"], key=lambda x: x["Timestamp"])
 
 for datapoint in datapoints_sorted:
     print(f"{datapoint['Timestamp']}: {datapoint['Average']}")
